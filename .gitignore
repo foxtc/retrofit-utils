@@ -263,11 +263,9 @@ Thumbs.db
 
 ### AndroidStudio Patch ###
 
-!/gradle/wrapper/gradle-wrapper.jar
 
 # Java class files
 .idea/
-gradlew
 gradlew.bat
 app/.gitignore
 app/proguard-rules.pro
