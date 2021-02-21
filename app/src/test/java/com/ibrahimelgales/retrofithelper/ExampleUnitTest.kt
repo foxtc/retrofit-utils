@@ -1,4 +1,4 @@
-package com.rabiealqulub.retrofithelper
+package com.ibrahimelgales.retrofithelper
 
 import org.junit.Test
 

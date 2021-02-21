@@ -1,4 +1,4 @@
-package com.rabiealqulub.retrofithelper
+package com.ibrahimelgales.retrofithelper
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

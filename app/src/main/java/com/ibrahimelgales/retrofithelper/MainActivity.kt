@@ -1,4 +1,4 @@
-package com.rabiealqulub.retrofithelper
+package com.ibrahimelgales.retrofithelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
