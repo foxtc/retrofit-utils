@@ -37,7 +37,7 @@ object RetroClient {
 }
 
 
-abstract class AuthInterceptor(
+open class AuthInterceptor(
     private val language: String? = null,
     private val token: Pair<RetrofitTokenType, String?>? = null,
     val responseStatusCode: ((Int) -> Unit)? = null
