@@ -1,10 +1,7 @@
 package com.ibrahimelgales.retrofitutils
 
 import com.google.gson.Gson
-import okhttp3.Interceptor
-import okhttp3.MediaType
-import okhttp3.OkHttpClient
-import okhttp3.Response
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
 import retrofit2.Retrofit
@@ -40,10 +37,13 @@ object RetroClient {
 }
 
 
-class AuthInterceptor(
+abstract class AuthInterceptor(
     private val language: String? = null,
-    private val token: Pair<RetrofitTokenType, String?>? = null
+    private val token: Pair<RetrofitTokenType, String?>? = null,
+    val responseStatusCode: ((Int) -> Unit)? = null
 ) : Interceptor {
+    open fun myRequest(request: Request) {}
+    open fun myResponse(response: Response) {}
     override fun intercept(chain: Interceptor.Chain): Response {
 
         val original = chain.request()
@@ -73,6 +73,11 @@ class AuthInterceptor(
         map["response"] = responseToString(response, request.body()?.contentType())
         map["code"] = response.code()
         map["message"] = response.message()
+
+        myRequest(request)
+        myResponse(response)
+
+        responseStatusCode?.invoke(response.code())
         return response
     }
 
